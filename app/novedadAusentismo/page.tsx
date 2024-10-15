@@ -76,7 +76,7 @@ const NovedadesAusentismos: React.FC = () => {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, eliminarlo!',
+            confirmButtonText: 'Si, eliminarlo!',
             cancelButtonText: 'Cancelar'
         });
 
@@ -94,8 +94,8 @@ const NovedadesAusentismos: React.FC = () => {
                     if (response.ok) {
                         setNovedades(novedades.filter(novedad => novedad.id !== id));
                         Swal.fire(
-                            'Eliminado!',
-                            'La novedad ha sido eliminado.',
+                            'Eliminada!',
+                            'La novedad ha sido eliminada.',
                             'success'
                         );
                     } else {
@@ -123,7 +123,7 @@ const NovedadesAusentismos: React.FC = () => {
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
-            behavior: 'smooth', // Desplazamiento suave
+            behavior: 'smooth',
         });
     };
 
@@ -148,7 +148,7 @@ const NovedadesAusentismos: React.FC = () => {
             <Navbar />
             <div className='p-8'>
                 <h1 className="text-4xl font-bold text-center text-white mt-8 mb-4">
-                    Novedades Ausentismo Registrados
+                    Novedades Ausentismo Registrado
                 </h1>
                 <div className='py-8'>
                     <button
@@ -165,7 +165,6 @@ const NovedadesAusentismos: React.FC = () => {
                     placeholder='Filtro'
                     className='mb-4 p-2 border border-gray-300 rounded'
                 />
-
                 <table className='min-w-full rounded-lg bg-sky-600 text-white'>
                     <thead>
                         <tr>
@@ -174,7 +173,7 @@ const NovedadesAusentismos: React.FC = () => {
                             <th className='py-2 px-4 border-b text-center cursor-pointer' onClick={() => requestSort('legajo_id')}>Empleado{sortConfig?.key === 'legajo_id' && <FontAwesomeIcon icon={getSortIcon('legajo_id')!} className="ml-2" />}</th>
                             <th className='py-2 px-4 border-b text-center cursor-pointer hidden lg:table-cell' onClick={() => requestSort('ausentismo')}>Motivo{sortConfig?.key === 'ausentismo' && <FontAwesomeIcon icon={getSortIcon('ausentismo')!} className="ml-2" />}</th>
                             <th className='py-2 px-4 border-b text-center cursor-pointer hidden xl:table-cell' onClick={() => requestSort('diagnostico')}>Diagnostico{sortConfig?.key === 'diagnostico' && <FontAwesomeIcon icon={getSortIcon('diagnostico')!} className="ml-2" />}</th>
-                            <th className='py-2 px-4 border-b text-center cursor-pointer ' onClick={() => requestSort('fecha_inicio')}>Ausente{sortConfig?.key === 'fecha_inicio' && <FontAwesomeIcon icon={getSortIcon('fecha_inicio')!} className="ml-2" />}</th>
+                            <th className='py-2 px-4 border-b text-center cursor-pointer' onClick={() => requestSort('fecha_inicio')}>Ausente{sortConfig?.key === 'fecha_inicio' && <FontAwesomeIcon icon={getSortIcon('fecha_inicio')!} className="ml-2" />}</th>
                             <th className='py-2 px-4 border-b text-center cursor-pointer hidden xl:table-cell' onClick={() => requestSort('dias_ausente')}>Cant Dias{sortConfig?.key === 'dias_ausente' && <FontAwesomeIcon icon={getSortIcon('dias_ausente')!} className="ml-2" />}</th>
                             <th className='py-2 px-4 border-b text-center'>Acciones</th>
                         </tr>
@@ -189,7 +188,6 @@ const NovedadesAusentismos: React.FC = () => {
                                 </td>
                             </tr>
                         </tbody>
-
                         :
                         <tbody>
                             {sortNovedades(novedadesFiltradas).map((novedad, index) => (
@@ -199,7 +197,7 @@ const NovedadesAusentismos: React.FC = () => {
                                     <td className='py-2 px-4 text-center'>{novedad.legajo.apellido} {novedad.legajo.nombre}</td>
                                     <td className='py-2 px-4 text-center hidden lg:table-cell'>{novedad.ausentismo.motivo}</td>
                                     <td className='py-2 px-4 text-center hidden xl:table-cell'>{novedad.diagnostico}</td>
-                                    <td className='py-2 px-4 text-center '>del {novedad.fecha_inicio} al {novedad.fecha_fin}</td>
+                                    <td className='py-2 px-4 text-center'>del {novedad.fecha_inicio} al {novedad.fecha_fin}</td>
                                     <td className='py-2 px-4 text-center hidden xl:table-cell'>{novedad.dias_ausente}</td>
                                     <td className='py-2 px-4 text-center flex justify-center items-center flex-col'>
                                         <button

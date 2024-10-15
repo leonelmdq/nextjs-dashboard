@@ -143,7 +143,7 @@ const EditarCliente: React.FC = () => {
     }
 
     return (
-        <div className="p-8">
+        <div className="p-8 min-w-96">
             <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md max-w-md mx-auto">
                 <h1 className="text-xl font-semibold mb-4">Editar Cliente</h1>
                 {error && <p className="text-red-600 mb-4">{error}</p>}

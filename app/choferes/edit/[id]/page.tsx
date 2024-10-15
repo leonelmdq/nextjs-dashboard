@@ -109,7 +109,7 @@ const EditarChofer: React.FC = () => {
     }
 
     return (
-        <div className="p-8">
+        <div className="p-8 min-w-96">
             <form onSubmit={handleSubmit} className="bg-sky-600 text-white p-6 rounded shadow-md max-w-md mx-auto">
                 <h1 className="text-xl font-semibold mb-4">Editar Chofer</h1>
                 {error && <p className="text-red-600 mb-4">{error}</p>}

@@ -110,13 +110,11 @@ const NuevaNovedadAusentismo: React.FC = () => {
         setError('');
         setSuccess('');
 
-
         const token = sessionStorage.getItem('token');
         if (!token) {
             setError('No se encontró el token de autenticación. Por favor, inicia sesión de nuevo.');
             return;
         }
-
         const novedadAusentismo = { fecha_evento: fechaEvento, profesional, comentarios, fecha_inicio: fechaInicio, fecha_fin: fechaFin, diagnostico, legajo_id: legajoId, nosocomio_id:nosocomioId, ausentismo_id:ausentismoId };
         try {
             const response = await fetch(`${apiURL}/private/rrhh/novedades_ausentismo`, {
@@ -130,8 +128,8 @@ const NuevaNovedadAusentismo: React.FC = () => {
             if (response.ok) {
                 setSuccess('Novedad agregada exitosamente.');
                 Swal.fire(
-                    'Creado!',
-                    'La nueva novedad ha sido creado.',
+                    'Creada!',
+                    'La nueva novedad ha sido creada.',
                     'success'
                 );
                 router.push('/novedadAusentismo');
@@ -139,13 +137,12 @@ const NuevaNovedadAusentismo: React.FC = () => {
                 setError('No autorizado. Verifica tus credenciales.');
                 Swal.fire(
                     'Error!',
-                    'No se pudo crear la novedad.',
+                    'No se pudo crear la novedad',
                     'error'
                 );
-
             } else {
                 const data = await response.json();
-                const errors = data.errors
+                const errors = data.errors;
                 Swal.fire(
                     'Error!',
                     `${errors}`,
@@ -162,13 +159,12 @@ const NuevaNovedadAusentismo: React.FC = () => {
             );
             setError('Ocurrió un error. Por favor, intenta nuevamente.');
         }
-
     };
 
     return (
-        <div className="p-2">
+        <div className="p-2 min-w-96">
             <form onSubmit={handleSubmit} className="bg-sky-600 text-white p-6 rounded shadow-md max-w-md mx-auto">
-                <h1 className="text-xl font-semibold mb-2">Agregar Nuevo Novedad Ausentismo</h1>
+                <h1 className="text-xl font-semibold mb-2">Agregar Nueva Novedad Ausentismo</h1>
                 {error && <p className="text-red-600 mb-2">{error}</p>}
                 {success && <p className="text-green-600 mb-4">{success}</p>}
                 <div className="mb-2">
@@ -242,7 +238,7 @@ const NuevaNovedadAusentismo: React.FC = () => {
                         className="text-black mt-1 p-2 w-full border border-gray-300 rounded"
                         required
                     >
-                        <option value="">Seleccionar legajo</option>
+                        <option value="">Seleccionar Legajo</option>
                         {legajos.map((rep) => (
                             <option key={rep.id} value={rep.id}>
                                 {rep.nombre}

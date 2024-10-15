@@ -124,7 +124,7 @@ const Navbar = () => {
                     </li>
                 </ul>
                 <div className="flex-none lg:hidden">
-                    <ul className="menu menu-vertical px-1">
+                    <ul className="menu menu-horizontal px-1">
                         <li>
                             <details>
                                 <summary className="text-white">Menú</summary>

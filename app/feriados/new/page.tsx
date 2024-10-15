@@ -73,7 +73,7 @@ const NuevoFeriado: React.FC<FormularioFeriadoProps> = ({ onFeriadoAdded }) => {
     };
 
     return (
-        <div className="">
+        <div className="min-w-96">
             <form onSubmit={handleSubmit} className="bg-sky-600 text-white p-6 rounded-lg shadow-md max-w-md mx-auto">
                 <h1 className="text-xl font-semibold mb-4">Agregar Nuevo Feriado</h1>
                 {error && <p className="text-red-600 mb-4">{error}</p>}

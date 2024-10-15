@@ -92,7 +92,7 @@ const Representantes: React.FC = () => {
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
-            behavior: 'smooth', // Desplazamiento suave
+            behavior: 'smooth',
         });
     };
 
@@ -112,7 +112,7 @@ const Representantes: React.FC = () => {
                         className="bg-green-500 text-white p-2 rounded hover:bg-green-600 transition duration-200"
                         onClick={() => router.push('/representantes/new')}
                     >
-                        Agregar Nuevo Representante
+                        Agregar Nuevo Representantes
                     </button>
                 </div>
                 <input

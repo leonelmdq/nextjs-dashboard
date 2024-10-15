@@ -114,7 +114,7 @@ const EditarNovedad: React.FC = () => {
             setError('No se encontró el token de autenticación. Por favor, inicia sesión de nuevo.');
             return;
         }
-        const ausentismoActualizado = { fecha_evento: fechaEvento, profesional, comentarios, fecha_inicio: fechaInicio, fecha_fin:fechaFin, diagnostico, legajo_id:legajoId, nosocomio_id:nosocomioId, ausentismo_id:ausentismoId };
+        const ausentismoActualizado = { fecha_evento: fechaEvento, profesional, comentarios, fecha_inicio: fechaInicio, fecha_fin: fechaFin, diagnostico, legajo_id: legajoId, nosocomio_id: nosocomioId, ausentismo_id: ausentismoId };
         console.log(ausentismoActualizado);
         const sanitizedData = Object.fromEntries(
             Object.entries(ausentismoActualizado).map(([key, value]) => [key, value === '' ? null : value])
@@ -128,9 +128,8 @@ const EditarNovedad: React.FC = () => {
                 },
                 body: JSON.stringify(sanitizedData),
             });
-
             if (response.ok) {
-                setSuccess('Ausentismo actualizado exitosamente.');
+                setSuccess('Ausentismo actualizado correctamente.');
                 Swal.fire(
                     'Modificado!',
                     'El ausentismo ha sido modificado.',
@@ -180,7 +179,6 @@ const EditarNovedad: React.FC = () => {
             console.error('An error occurred:', error);
         }
     };
-
     useEffect(() => {
         if (params.id) {
             getNovedad(Number(params.id));
@@ -190,9 +188,8 @@ const EditarNovedad: React.FC = () => {
         }
     }, [params.id]);
 
-
     return (
-        <div className="p-8">
+        <div className="p-8 min-w-96">
             <form onSubmit={handleSubmit} className="bg-sky-600 text-white p-6 rounded shadow-md max-w-3xl mx-auto">
                 <h1 className="text-xl font-semibold mb-2">Editar Novedad</h1>
                 {error && <p className="text-red-600 mb-2">{error}</p>}
@@ -217,7 +214,7 @@ const EditarNovedad: React.FC = () => {
                             className="text-black mt-1 p-2 w-full border border-gray-300 rounded"
                             required
                         >
-                            <option value="">Seleccionar legajo</option>
+                            <option value="">Seleccionar Legajo</option>
                             {legajos.map((rep) => (
                                 <option key={rep.id} value={rep.id}>
                                     {rep.nombre}
@@ -299,7 +296,6 @@ const EditarNovedad: React.FC = () => {
                             />
                         </div>
                     </div>
-
                     <div className="mb-2">
                         <label htmlFor="diagnostico" className="block text-sm font-medium text-white-700">Diagnostico</label>
                         <input
@@ -311,7 +307,6 @@ const EditarNovedad: React.FC = () => {
                         />
                     </div>
                 </div>
-
                 <div className='grid grid-cols-2 gap-5'>
                     <button
                         type="button"
@@ -327,7 +322,6 @@ const EditarNovedad: React.FC = () => {
                         Guardar
                     </button>
                 </div>
-
             </form>
         </div>
     );

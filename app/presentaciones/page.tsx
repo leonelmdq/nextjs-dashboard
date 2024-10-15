@@ -93,7 +93,7 @@ const Presentaciones: React.FC = () => {
                         setPresentaciones(presentaciones.filter(presentacion => presentacion.id !== id));
                         Swal.fire(
                             'Eliminado!',
-                            'La presentacion ha sido eliminado.',
+                            'La presentacion ha sido eliminada.',
                             'success'
                         );
                     } else {
@@ -104,7 +104,7 @@ const Presentaciones: React.FC = () => {
                             `${errors}`,
                             'error'
                         );
-                        console.error('Failed to delete presentacion');
+                        console.error('Failet to delete presentacion');
                     }
                 }
             } catch (error) {
